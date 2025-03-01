@@ -5,4 +5,4 @@ class TaskSerializer(serializers.Serializer):
     title = serializers.CharField()
     description = serializers.CharField()
     completed = serializers.BooleanField()
-    created_at = serializers.DateTimeField()
+    created = serializers.DateTimeField()

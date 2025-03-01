@@ -25,7 +25,7 @@ class TaskListCreatAPIView(generics.ListCreateAPIView):
             title=title,
             description=description,
             completed=completed,
-            created_at=created_at
+            created=created
         )
         task.save()
         return Response(TaskSerializer(task).data, status=status.HTTP_201_CREATED)
@@ -44,6 +44,6 @@ class TaskDetailUpdateDeleteAPIView(generics.RetrieveUpdateDestroyAPIView):
         task_detail.title = serializer.validated_data.get('title')
         task_detail.description = serializer.validated_data.get('description')
         task_detail.completed = serializer.validated_data.get('completed')
-        task_detail.created_at = serializer.validated_data.get('created_at')
+        task_detail.created = serializer.validated_data.get('created')
         task_detail.save()
         return Response(TaskSerializer(task_detail).data, status=status.HTTP_200_OK)
